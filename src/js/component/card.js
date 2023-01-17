@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = (item) => {
+const Card = (props) => {
     
     return ( 
         <div className="card-group">
             <div className="card">
                 <img src="..." className="card-img-top" alt="image"/>
                 <div className="card-body">
-                    <h5 className="card-title">{item.name}</h5>
-                    <p className="card-text">{item.properties.eye_color}</p>
+                    <h5 className="card-title">{props.name}</h5>
+                    <p className="card-text">Descripción</p>
                     <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                    <a href="#" className="btn btn-primary">Learn more!</a>
+                    <Link to={"/single/"+props.id} className="btn btn-primary">Learn more!</Link>
                 </div>
             </div>
         </div>
