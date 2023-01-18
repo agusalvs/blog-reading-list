@@ -26,7 +26,7 @@ export const Home = () => {
 	return(
 		<>
 	<div className="text-center mt-5">
-		{characters.map((item)=><Card name={item.name} key={item.uid}/>)}
+		{characters.map((props)=><Card name={props.name} id={props.uid} key={props.uid}/>)}
 	</div>
 	</>
 	);
