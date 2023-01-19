@@ -6,18 +6,19 @@ const Card = (props) => {
     const {store, actions} = useContext(Context);
 
     return ( 
-        <div className="card-group row d-flex justify-content-center">
-            <div className="card" style={{maxWidth: "30%"}}>
-                <img src={"https://starwars-visualguide.com/assets/img/characters/"+props.id+".jpg"} className="card-img-top" style={{width: "200px", height: "300px"}} alt="image"/>
-                <div className="card-body">
-                    <h5 className="card-title">{props.name}</h5>
-                    <p className="card-text">Descripción</p>
-                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                    <Link to={"/single/"+props.id} className="btn btn-primary float-start">Learn more!</Link>
-                    <Link onClick={()=>actions.agregarFavorito(props.name)} className="btn btn-primary float-end"><i className="fa fa-heart"></i></Link>
+            <div className="card border border-dark border-3 m-2" style={{maxWidth: "300px"}}>
+                <div className="card-body text-center justify-content-center align-items-center">
+                    <img src={"https://starwars-visualguide.com/assets/img/characters/"+props.id+".jpg"} className="card-img-top mb-1" style={{maxWidth: "200px", height: "250px"}} alt="image"/>
+                    <div className="card-info">
+                        <h5 className="card-title d-flex justify-content-center">{props.name}</h5>
+                        <p className="card-text d-flex justify-content-center">Description</p>
+                    </div>
+                </div>
+                <div className="card-footer d-block mx-0" style={{backgroundColor: "black"}}>
+                    <Link to={"/single/"+props.id} className="btn btn-light float-start">Learn more!</Link>
+                        <Link onClick={()=>actions.agregarFavorito(props.name)} className="btn btn-light float-end"><i className="fa fa-heart"></i></Link>
                 </div>
             </div>
-        </div>
     );
 };
 

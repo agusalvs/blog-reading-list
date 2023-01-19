@@ -6,16 +6,42 @@ import { Context } from "../store/appContext.js";
 export const Navbar = () => {
     const {store, actions} = useContext(Context);
     console.log(store.favorites);
+    
+
     return ( 
-        <nav className = "navbar navbar-light bg-dark mb-3 d-flex">
+        <nav className = "navbar navbar-light bg-dark mb-3 px-4 d-flex">
             <Link to = "/">
                 <span className = "navbar-brand mb-0 h1" > <img id="local-nav-logo-mobile" src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_horiz_2x-f98247cb30aa_c622cfa9.png?region=0,0,732,75" alt="Portal Nav - Bottom"/> </span> 
             </Link> 
             <div className = "ml-auto">
-                <Link to = "/demo" >
-                <button className = "btn btn-primary" > Favorites </button>
-                </Link> 
-            </div> 
-        </nav>
+
+            <div className="btn-group">
+                <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    Favorites {store.favorites.length}
+                </button>
+                <ul className="dropdown-menu dropdown-menu-lg-end">
+                    {store.favorites.map((element, index) =><li><button className="dropdown-item text-align-middle" style={{width: "200px"}} type="button" key={index}>{element} <button type="button" className="btn btn-outline-danger col float-end" onClick={() => actions.removeFav(index)}>
+                            <i className="fas fa-trash-alt"></i>
+                            </button></button></li>
+                    )}
+                </ul>
+            </div>
+
+            {/* <div className="nav-item dropdown me-2">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Favorites {store.favorites.length}
+                </a>
+                <ul className="dropdown-menu dropdown-menu-lg-end">
+                    {store.favorites.map((element, index) => 
+                        <li className="list-group-item col-10" key={index}>{element} 
+                            <button type="button" className="btn btn-outline-danger col" onClick={() => actions.removerItem(index)}>
+                            <i className="fas fa-trash-alt"></i>
+                            </button>
+                        </li>
+                    )}
+                </ul>
+            </div> */}
+        </div> 
+    </nav>
     );
 };

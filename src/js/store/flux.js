@@ -56,14 +56,23 @@ const getState = ({
             },
 
 
-
             agregarFavorito: (name) => {
                 console.log(name);
                 const store = getStore();
                 setStore({
                     favorites: [...store.favorites, name]
                 })
-            }
+            },
+
+            removeFav: (index) => { //el index viene del map
+                const store = getStore();
+                const newList = store.favorites; //newList copia favorites
+                newList.splice(index, 1); //splice le quita lo que está en el lugar index
+                setStore({ //setStore({favorites:newList}) guarda la newList en favorites
+                    favorites: newList
+                });
+                // console.log(store.favorites)
+            },
         },
 
         changeColor: (index, color) => {
