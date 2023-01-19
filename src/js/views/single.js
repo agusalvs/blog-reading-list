@@ -26,7 +26,7 @@ export const Single = props => {
 	// console.log(characterInfo);
 
     return ( 
-<div className="container mx-auto">
+    <div className="container mx-auto">
         <div className="card mb-4 mx-auto" style={{maxWidth: "540px"}}>
             <div className="row g-0 m-4">
                 <div className="col">
@@ -61,11 +61,6 @@ export const Single = props => {
                 </div>
             </div>
         </div>
-        <Link to = "/" className="mx-auto">
-            <span className = "btn btn-primary btn-lg mx-auto" href = "#" role = "button">
-                Back home 
-            </span>
-        </Link >
     </div>
 
     );

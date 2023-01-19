@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Link} from "react-router-dom";
+import { Context } from "../store/appContext.js";
+
 
 export const Navbar = () => {
+    const {store, actions} = useContext(Context);
+    console.log(store.favorites);
     return ( 
         <nav className = "navbar navbar-light bg-dark mb-3 d-flex">
             <Link to = "/">
@@ -9,7 +13,7 @@ export const Navbar = () => {
             </Link> 
             <div className = "ml-auto">
                 <Link to = "/demo" >
-                <button className = "btn btn-primary" > Check the Context in action </button> 
+                <button className = "btn btn-primary" > Favorites </button>
                 </Link> 
             </div> 
         </nav>
