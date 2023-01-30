@@ -10,9 +10,11 @@ export const Home = () => {
 
 	return(
 		<>
-	<div className="container d-flex row my-3 mx-3">
-		{store.characters.map((props)=><Card name={props.name} id={props.uid} key={props.uid}/>)}
-	</div>
+		<div className="row flex-nowrap overflow-auto mx-auto scrollbar scrollbar-black bordered-black square" style={{width:"90%", backgroundColor: "black"}}>
+			{store.characters.map((props)=> <div className="col"><Card name={props.name} id={props.uid} key={props.uid}/></div>)}
+		</div>
 	</>
 	);
 };
+
+// row my-3 mx-3

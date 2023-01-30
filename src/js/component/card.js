@@ -6,9 +6,9 @@ const Card = (props) => {
     const {store, actions} = useContext(Context);
 
     return ( 
-            <div className="card border border-dark border-3 m-2" style={{maxWidth: "300px"}}>
+            <div className="card border border-dark border-3 m-2" style={{width: "18rem"}}>
                 <div className="card-body text-center justify-content-center align-items-center">
-                    <img src={"https://starwars-visualguide.com/assets/img/characters/"+props.id+".jpg"} className="card-img-top mb-1" style={{maxWidth: "200px", height: "250px"}} alt="image"/>
+                    <img src={"https://starwars-visualguide.com/assets/img/characters/"+props.id+".jpg"} className="card-img-top mb-1" alt="image"/>
                     <div className="card-info">
                         <h5 className="card-title d-flex justify-content-center">{props.name}</h5>
                         <p className="card-text d-flex justify-content-center">Description</p>

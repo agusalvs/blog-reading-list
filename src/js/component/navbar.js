@@ -16,31 +16,16 @@ export const Navbar = () => {
             <div className = "ml-auto">
 
             <div className="btn-group">
-                <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style={{backgroundColor: "black"}}>
                     Favorites {store.favorites.length}
                 </button>
-                <ul className="dropdown-menu dropdown-menu-lg-end">
-                    {store.favorites.map((element, index) =><li><button className="dropdown-item text-align-middle" style={{width: "200px"}} type="button" key={index}>{element} <button type="button" className="btn btn-outline-danger col float-end" onClick={() => actions.removeFav(index)}>
+                <ul className="dropdown-menu dropdown-menu-lg-end" style={{textColor: "white", backgroundColor: "black"}}>
+                    {store.favorites.map((element, index) =><li><button className="dropdown-item text-align-middle" style={{width: "200px", textColor: "white"}} type="button" key={index}>{element} <button type="button" className="btn btn-outline-danger col float-end" onClick={() => actions.removeFav(index)}>
                             <i className="fas fa-trash-alt"></i>
                             </button></button></li>
                     )}
                 </ul>
             </div>
-
-            {/* <div className="nav-item dropdown me-2">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Favorites {store.favorites.length}
-                </a>
-                <ul className="dropdown-menu dropdown-menu-lg-end">
-                    {store.favorites.map((element, index) => 
-                        <li className="list-group-item col-10" key={index}>{element} 
-                            <button type="button" className="btn btn-outline-danger col" onClick={() => actions.removerItem(index)}>
-                            <i className="fas fa-trash-alt"></i>
-                            </button>
-                        </li>
-                    )}
-                </ul>
-            </div> */}
         </div> 
     </nav>
     );
