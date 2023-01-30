@@ -10,7 +10,21 @@ export const Home = () => {
 
 	return(
 		<>
-		<div className="row flex-nowrap overflow-auto mx-auto scrollbar scrollbar-black bordered-black square" style={{width:"90%", backgroundColor: "black"}}>
+		<h2 className="ms-5 ps-5">Characters</h2>
+		<div className="row flex-nowrap overflow-auto mx-auto scrollbar scrollbar-black bordered-black square" style={{width:"90%"}}>
+			{store.characters.map((props)=>
+			<div className="col">
+				<Card name={props.name} id={props.uid} key={props.uid}/>
+			</div>)}
+		</div>
+
+		<h2 className="ms-5 ps-5 mt-5">Planets</h2>
+		<div className="row flex-nowrap overflow-auto mx-auto scrollbar scrollbar-black bordered-black square mb-5" style={{width:"90%"}}>
+			{store.characters.map((props)=> <div className="col"><Card name={props.name} id={props.uid} key={props.uid}/></div>)}
+		</div>
+
+		<h2 className="ms-5 ps-5">Starships</h2>
+		<div className="row flex-nowrap overflow-auto mx-auto scrollbar scrollbar-black bordered-black square" style={{width:"90%"}}>
 			{store.characters.map((props)=> <div className="col"><Card name={props.name} id={props.uid} key={props.uid}/></div>)}
 		</div>
 	</>

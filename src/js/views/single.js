@@ -27,7 +27,7 @@ export const Single = props => {
 
     return ( 
     <div className="container mx-auto">
-        <div className="card mb-4 mx-auto" style={{maxWidth: "540px"}}>
+        <div className="card mx-auto my-auto" style={{width: "1000px", height: "700px"}}>
             <div className="row g-0 m-4">
                 <div className="col">
                     <img src="https://www.greenstuffworld.com/creative/imagenes-proyecto/77796d8a70dc15152371e4e7b08e66c3a1dcf8ae6838638267836.jpg" className="img-fluid rounded-start" alt=""/>
