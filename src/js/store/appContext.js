@@ -32,7 +32,8 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			state.actions.charactersInfo();
-			// state.actions.getcharacterInfo();
+			state.actions.planetsInfo();
+			state.actions.starshipsInfo();			// state.actions.getcharacterInfo();
 			// state.actions.removeFav();
 		}, []);
 

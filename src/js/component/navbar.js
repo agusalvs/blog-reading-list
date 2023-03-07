@@ -5,7 +5,7 @@ import { Context } from "../store/appContext.js";
 
 export const Navbar = () => {
     const {store, actions} = useContext(Context);
-    console.log(store.favorites);
+    // console.log(store.favorites);
     
 
     return ( 

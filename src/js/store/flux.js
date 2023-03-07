@@ -11,8 +11,12 @@ const getState = ({
         store: {
             characters: [],
             characterInfo: {},
-            // favoritos:["Luke","Leia"]
+            planets: [],
+            planetInfo: {},
+            starships: [],
+            starshipInfo: {},
             favorites: [],
+            auth: false,
         },
 
         actions: {
@@ -32,6 +36,7 @@ const getState = ({
             // 	// .catch(err => console.error(err))
             // },
 
+            // FETCH CHARACTERS
             charactersInfo: () => {
                 /**
                 	fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -45,6 +50,7 @@ const getState = ({
                 // .catch(err => console.error(err))
             },
 
+            // FETCH SINGLE CHARACTER
             getcharacterInfo: (id) => {
                 fetch("https://www.swapi.tech/api/people/" + id)
                     .then(res => res.json())
@@ -55,7 +61,50 @@ const getState = ({
                 // .catch(err => console.error(err))
             },
 
+            // FETCH PLANETS
+            planetsInfo: () => {
+                /**
+                fetch().then().then(data => setStore({ "foo": data.bar }))
+                */
+                fetch("https://www.swapi.tech/api/planets/")
+                    .then(res => res.json())
+                    // .then(data => console.log(data))
+                    .then((data) => setStore({
+                        planets: data.results
+                    }));
+                // .catch(err => console.error(err))
+            },
 
+            // FETCH SINGLE PLANET
+            getPlanetInfo: (id) => {
+                fetch("https://www.swapi.tech/api/planets/" + id)
+                    .then(res => res.json())
+                    .then((data) => setStore({
+                        planetInfo: data.result
+                    }))
+            },
+
+            // FETCH STARSHIPS
+            starshipsInfo: () => {
+                fetch("https://www.swapi.tech/api/starships/")
+                    .then(res => res.json())
+                    // .then(data => console.log(data))
+                    .then((data) => setStore({
+                        starships: data.results
+                    }));
+                // .catch(err => console.error(err))
+            },
+
+            // FETCH SINGLE STARSHIP
+            getStarshipInfo: (id) => {
+                fetch("https://www.swapi.tech/api/starships/" + id)
+                    .then(res => res.json())
+                    .then((data) => setStore({
+                        planetInfo: data.result
+                    }))
+            },
+
+            // ADD TO FAVORITES
             agregarFavorito: (name) => {
                 console.log(name);
                 const store = getStore();
@@ -64,6 +113,7 @@ const getState = ({
                 })
             },
 
+            // REMOVE FROM FAVORITES
             removeFav: (index) => { //el index viene del map
                 const store = getStore();
                 const newList = store.favorites; //newList copia favorites
@@ -75,6 +125,7 @@ const getState = ({
             },
         },
 
+        // CHANGE COLOR
         changeColor: (index, color) => {
             //get the store
             const store = getStore();
@@ -91,6 +142,8 @@ const getState = ({
                 demo: demo
             });
         }
+
+
     }
 };
 
